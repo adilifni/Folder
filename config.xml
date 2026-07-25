@@ -7,7 +7,7 @@
     <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
         Apache Cordova Team
     </author>
-    <content src="index.html" />
+<content src="https://africa-conflict.vercel.app/main.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
