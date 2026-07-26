@@ -7,8 +7,23 @@
     <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
         Apache Cordova Team
     </author>
-<content src="https://africa-conflict.vercel.app/main.html" />
+    <content src="https://africa-conflict.vercel.app/main.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+
+    <!-- إعدادات الأندرويد والأيقونة وشاشة الافتتاحية -->
+    <platform name="android">
+        <allow-intent href="market:*" />
+        
+        <!-- اللوغو (أيقونة التطبيق) -->
+        <icon src="res/icon/logo.png" />
+
+        <!-- شاشة الافتتاحية (Splash Screen) -->
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/splash.png" />
+        <preference name="AndroidWindowSplashScreenBackground" value="#FFFFFF" />
+        <splash src="res/screen/splash.png" />
+        <preference name="SplashScreenDelay" value="3000" />
+        <preference name="SplashMaintainAspectRatio" value="true" />
+    </platform>
 </widget>
