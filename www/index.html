@@ -5,26 +5,170 @@
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval' https://africa-conflict.vercel.app; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content: https:;">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <title>ifni</title>
-        <style>
-            html, body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                background-color: #ffffff;
-            }
-            iframe {
-                width: 100%;
-                height: 100%;
-                border: none;
-            }
-        </style>
+            <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <iframe src="https://africa-conflict.vercel.app/main.html"></iframe>
+<body>
+
+    <!-- الهيدر العلوي -->
+    <header class="main-header">
+        <div class="header-container">
+            <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+            <div class="logo">متجر <span>النخبة</span></div>
+            <div class="search-bar">
+                <input type="text" placeholder="ابحث عن منتجك المفضّل...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-icons">
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="badge">3</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- القائمة الجانبية (Sidebar) -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>التصنيفات والقوائم</h3>
+            <button class="close-btn" id="closeBtn"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
+            <li><a href="#"><i class="fas fa-laptop"></i> الإلكترونيات</a></li>
+            <li><a href="#"><i class="fas fa-tshirt"></i> الأزياء والموضة</a></li>
+            <li><a href="#"><i class="fas fa-home"></i> مستلزمات المنزل</a></li>
+            <li><a href="#"><i class="fas id-badge"></i> عروض اليوم</a></li>
+            <li><a href="#"><i class="fas fa-headset"></i> تواصل معنا</a></li>
+        </ul>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- السلايد شو الاحترافي (Slideshow) -->
+    <section class="hero-slider">
+        <div class="slide active" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80') center/cover;">
+            <div class="slide-content">
+                <h2>عروض الصيف الكبرى</h2>
+                <p>خصومات تصل إلى 50% على أفضل المنتجات الإلكترونية.</p>
+                <a href="#" class="btn-primary">تسوق الآن</a>
+            </div>
+        </div>
+        <div class="slide" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80') center/cover;">
+            <div class="slide-content">
+                <h2>تشكيلة الساعات الفاخرة</h2>
+                <p>أناقة تليق بكل أوقاتك وبأفضل الأسعار المنافسة.</p>
+                <a href="#" class="btn-primary">اكتشف التشكيلة</a>
+            </div>
+        </div>
+        <div class="slide" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80') center/cover;">
+            <div class="slide-content">
+                <h2>أحدث كاميرات التصوير</h2>
+                <p>وثّق ذكرياتك بجودة احترافية فائقة الوضوح.</p>
+                <a href="#" class="btn-primary">اشترِ الان</a>
+            </div>
+        </div>
+        <!-- أزرار التنقل للسلايدر -->
+        <button class="prev-slide" id="prevSlide">&#10095;</button>
+        <button class="next-slide" id="nextSlide">&#10094;</button>
+    </section>
+
+    <!-- البلوكات المتنوعة (محتوى المتجر) -->
+    <main class="container">
         
-        <script src="cordova.js"></script>
-        <script src="js/index.js"></script>
-    </body>
+        <!-- بلوك المميزات -->
+        <section class="features-block">
+            <div class="feature-item">
+                <i class="fas fa-shipping-fast"></i>
+                <div>
+                    <h4>شحن سريع وآمن</h4>
+                    <p>توصيل لجميع المدن بأسرع وقت</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-undo"></i>
+                <div>
+                    <h4>سياسة الاسترجاع</h4>
+                    <p>إمكانية الاسترجاع خلال 14 يوم</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h4>دفع إلكتروني آمن</h4>
+                    <p>حماية كاملة لبياناتك المالية</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-headset"></i>
+                <div>
+                    <h4>دعم فني 24/7</h4>
+                    <p>خدمة عملاء جاهزة للرد دائماً</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بلوك المنتجات المميزة -->
+        <section class="products-section">
+            <div class="section-title">
+                <h3>المنتجات المميزة</h3>
+                <a href="#">عرض الكل</a>
+            </div>
+            <div class="products-grid">
+                <!-- منتج 1 -->
+                <div class="product-card">
+                    <span class="tag">تخفيض</span>
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="سماعات رأس">
+                    <div class="product-info">
+                        <h4>سماعات رأس لاسلكية</h4>
+                        <div class="price">
+                            <span class="old-price">$120.00</span>
+                            <span class="new-price">$85.00</span>
+                        </div>
+                        <button class="btn-cart">أضف للسلة</button>
+                    </div>
+                </div>
+                <!-- منتج 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="ساعة ذكية">
+                    <div class="product-info">
+                        <h4>ساعة ذكية رياضية</h4>
+                        <div class="price">
+                            <span class="new-price">$150.00</span>
+                        </div>
+                        <button class="btn-cart">أضف للسلة</button>
+                    </div>
+                </div>
+                <!-- منتج 3 -->
+                <div class="product-card">
+                    <span class="tag">جديد</span>
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=400&q=80" alt="ساعة ذكية برو">
+                    <div class="product-info">
+                        <h4>ساعة ذكية موديل برو</h4>
+                        <div class="price">
+                            <span class="new-price">$210.00</span>
+                        </div>
+                        <button class="btn-cart">أضف للسلة</button>
+                    </div>
+                </div>
+                <!-- منتج 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=400&q=80" alt="سماعات ألعاب">
+                    <div class="product-info">
+                        <h4>سماعات جيمنج احترافية</h4>
+                        <div class="price">
+                            <span class="old-price">$90.00</span>
+                            <span class="new-price">$65.00</span>
+                        </div>
+                        <button class="btn-cart">أضف للسلة</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="main-footer">
+        <p>جميع الحقوق محفوظة &copy; 2026 - متجر النخبة</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
