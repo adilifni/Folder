@@ -1,29 +1,86 @@
-/**
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
+// التحكم في القائمة الجانبية (Sidebar)
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
 
-        http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-    KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
-*/
-
-// Wait for the deviceready event before using any of Cordova's device APIs.
-// See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
-
-function onDeviceReady() {
-    // Cordova is now initialized. Have fun!
-
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+function toggleSidebar() {
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
 }
+
+menuBtn.addEventListener('click', toggleSidebar);
+closeBtn.addEventListener('click', toggleSidebar);
+overlay.addEventListener('click', toggleSidebar);
+
+// التحكم في السلايد شو الاحترافي (Slideshow)
+const slides = document.querySelectorAll('.slide');
+const nextSlideBtn = document.getElementById('nextSlide');
+const prevSlideBtn = document.getElementById('prevSlide');
+let currentSlide = 0;
+let slideInterval;
+
+function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    
+    if (index >= slides.length) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = index;
+    }
+    
+    slides[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+nextSlideBtn.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+});
+
+prevSlideBtn.addEventListener('click', () => {
+    prevSlide();
+    resetInterval();
+});
+
+// التشغيل التلقائي للسلايدر كل 4 ثوانٍ
+function startSlideShow() {
+    slideInterval = setInterval(nextSlide, 4000);
+}
+
+function resetInterval() {
+    clearInterval(slideInterval);
+    startSlideShow();
+}
+
+startSlideShow();
+
+// تفاعل بسيط لأزرار "أضف للسلة"
+const cartButtons = document.querySelectorAll('.btn-cart');
+const badge = document.querySelector('.badge');
+let cartCount = 3;
+
+cartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        cartCount++;
+        badge.textContent = cartCount;
+        
+        // تأثير بصري بسيط عند الإضافة
+        button.textContent = "تمت الإضافة ✓";
+        button.style.backgroundColor = "#27ae60";
+        
+        setTimeout(() => {
+            button.textContent = "أضف للسلة";
+            button.style.backgroundColor = "#2c3e50";
+        }, 1500);
+    });
+});
